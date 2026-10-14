@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Productos - DataStore Perú</title>
-    <!-- Fuente moderna desde Google Fonts -->
+    <title>DataStore Perú - Hardware & Tech</title>
+    <!-- Fuente Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,24 +15,68 @@
     <main class="container">
         <!-- Tarjeta Principal -->
         <article class="card">
-            <span class="badge">Oficial Perú 🇵🇪</span>
-            
-            <h1>Bienvenido a <span>DataStore</span></h1>
-            
-            <p>Encuentra los mejores componentes y periféricos de última generación con garantía local y envío rápido.</p>
-            
-            <!-- Bloque Visual / Imagen -->
-            <div class="bloque-visual">
-                <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=800&auto=format&fit=crop" alt="Componentes de Computadora DataStore">
+            <!-- Encabezado con Badge y Status -->
+            <div class="card-header">
+                <span class="badge badge-primary">Oficial Perú 🇵🇪</span>
+                <span class="stock-status"><span class="dot"></span> En Stock</span>
             </div>
             
+            <h1>Bienvenido a <span>DataStore</span></h1>
+            <p>Encuentra los mejores componentes, laps y periféricos de última generación con garantía local y despacho exprés.</p>
+            
+            <!-- Bloque Visual / Imagen con Tag de Descuento -->
+            <div class="bloque-visual">
+                <span class="discount-tag">-15% OFF</span>
+                <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=800&auto=format&fit=crop" alt="Componentes de Computadora DataStore">
+            </div>
+
+            <!-- Detalles del Producto / Oferta -->
+            <div class="product-info">
+                <div class="rating">
+                    ⭐ <span>4.9 / 5.0</span> <small>(128 valoraciones)</small>
+                </div>
+                <div class="price-container">
+                    <span class="price-old">S/ 4,599</span>
+                    <span class="price-current">S/ 3,899</span>
+                </div>
+            </div>
+
+            <!-- Beneficios Rápidos -->
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span>🚀</span> Envío a todo el Perú
+                </div>
+                <div class="feature-item">
+                    <span>🛡️</span> Garantía 12 Meses
+                </div>
+            </div>
+
             <!-- Acciones -->
             <div class="card-action">
-                <button id="btn-comprar">Explorar Catálogo →</button>
+                <button id="btn-comprar" class="btn-primary">
+                    <span>Explorar Catálogo</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
             </div>
         </article>
     </main>
 
-</body>
+    <!-- Notificación emergente Toast -->
+    <div id="toast" class="toast hidden">
+        ✨ ¡Redirigiendo al catálogo de DataStore Perú!
+    </div>
 
+    <script>
+        document.getElementById('btn-comprar').addEventListener('click', () => {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('hidden');
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                toast.classList.add('hidden');
+            }, 3000);
+        });
+    </script>
+</body>
 </html>
